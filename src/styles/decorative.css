@@ -1,0 +1,47 @@
+.alpana-divider {
+  display: block;
+  width: min(360px, 80%);
+  height: auto;
+  margin-inline: auto;
+}
+
+.ghot-decoration {
+  display: block;
+}
+
+.banana-leaf {
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(74, 14, 24, 0.15));
+}
+
+.wedding-hands {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  pointer-events: none;
+}
+
+.wedding-hands__left,
+.wedding-hands__right {
+  opacity: 0.9;
+}
+
+.bengali-eyes {
+  display: block;
+  opacity: 0.8;
+}
+
+.floating-flowers {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-flowers__petal {
+  position: absolute;
+  top: -5%;
+}

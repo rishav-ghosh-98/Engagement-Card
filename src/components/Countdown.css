@@ -1,0 +1,62 @@
+.countdown-section {
+  background: linear-gradient(160deg, #fbf7f3 0%, #f2e9e5 100%);
+  color: var(--color-ink);
+  text-align: center;
+}
+
+.countdown-section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.countdown-section__eyebrow {
+  font-family: var(--font-display);
+  color: var(--color-deep-red);
+  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+}
+
+.countdown-section__units {
+  display: flex;
+  gap: clamp(0.75rem, 3vw, 1.5rem);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.countdown-section__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+  padding: 0.75rem 0.5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(182, 154, 112, 0.35);
+}
+
+.countdown-section__value {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-deep-red);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-section__label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.countdown-section__footer {
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  opacity: 0.85;
+}
+
+.countdown-section__arrived {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  color: var(--color-deep-red);
+}

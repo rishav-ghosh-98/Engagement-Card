@@ -1,0 +1,191 @@
+.invitation-cover {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vh, 1.75rem);
+  padding: 1.5rem;
+  background: radial-gradient(circle at 50% 20%, #fffefa 0%, #f8f3ef 58%, #eee4df 100%);
+  overflow: hidden;
+  text-align: center;
+}
+
+.invitation-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(139, 89, 97, 0.045) 1px, transparent 1px);
+  background-size: 18px 18px;
+  pointer-events: none;
+}
+
+.invitation-cover__ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.invitation-cover__eyebrow {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  color: var(--color-deep-red);
+  letter-spacing: 0.06em;
+  font-size: clamp(1rem, 3.2vw, 1.4rem);
+  max-width: 24ch;
+}
+
+.invitation-cover__stage-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitation-cover__stage {
+  position: relative;
+  z-index: 2;
+  perspective: 1400px;
+  cursor: pointer;
+  width: min(78vw, 300px);
+  aspect-ratio: 3 / 4.1;
+}
+
+.invitation-cover__stage:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 6px;
+  border-radius: 14px;
+}
+
+.invitation-cover__canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.invitation-cover__canvas canvas {
+  touch-action: none;
+}
+
+.invitation-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: card-float 5s ease-in-out infinite;
+}
+
+@keyframes card-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.invitation-card__back,
+.invitation-card__cover {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+}
+
+.invitation-card__back {
+  background: linear-gradient(160deg, var(--color-maroon), var(--color-deep-red));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  color: var(--color-gold-light);
+  box-shadow: inset 0 0 0 1px rgba(199, 154, 60, 0.4);
+}
+
+.invitation-card__back-line {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.invitation-card__back-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--color-ivory);
+}
+
+.invitation-card__cover {
+  background: linear-gradient(155deg, var(--color-gold) 0%, var(--color-gold-light) 45%, var(--color-gold) 100%);
+  transform-origin: left center;
+  transition: transform 1.4s var(--ease-silk);
+  box-shadow: 4px 10px 30px rgba(74, 14, 24, 0.35);
+  padding: 6px;
+}
+
+.invitation-card.is-open .invitation-card__cover {
+  transform: rotateY(-165deg);
+}
+
+.invitation-card__cover-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(165deg, var(--color-ivory), var(--color-cream));
+  border: 1px solid rgba(199, 154, 60, 0.5);
+  outline: 1px solid rgba(199, 154, 60, 0.25);
+  outline-offset: -6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  backface-visibility: hidden;
+}
+
+.invitation-card__motif {
+  font-size: 1.4rem;
+  color: var(--color-gold);
+}
+
+.invitation-card__label {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 5.5vw, 2rem);
+  color: var(--color-deep-red);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.invitation-card__flower {
+  font-size: 1.5rem;
+  color: var(--color-sindoor);
+}
+
+.invitation-cover__eyes {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.invitation-cover__hint {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-terracotta);
+  font-size: clamp(0.85rem, 2.6vw, 1rem);
+  line-height: 1.4;
+}
+
+.invitation-cover__divider {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation-card {
+    animation: none;
+  }
+}

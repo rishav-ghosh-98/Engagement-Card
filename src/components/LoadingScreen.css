@@ -1,0 +1,47 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: radial-gradient(circle at 50% 40%, #fffefa 0%, #f4ece7 100%);
+  color: var(--color-ink);
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.loading-screen__eyebrow {
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  color: var(--color-deep-red);
+  font-size: clamp(1rem, 3vw, 1.3rem);
+}
+
+.loading-screen__names {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 7vw, 3rem);
+  font-weight: 700;
+}
+
+.loading-screen__names span {
+  color: var(--color-deep-red);
+  margin-inline: 0.3em;
+  font-weight: 400;
+}
+
+.loading-screen__status {
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.loading-screen__thread {
+  width: min(220px, 60vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin-top: 0.5rem;
+  transform-origin: center;
+}

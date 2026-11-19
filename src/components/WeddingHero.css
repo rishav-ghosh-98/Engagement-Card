@@ -1,0 +1,92 @@
+.wedding-hero {
+  background: linear-gradient(180deg, var(--bg-paper) 0%, var(--bg-section) 100%);
+}
+
+.wedding-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.wedding-hero__invocation {
+  font-family: var(--font-display);
+  color: var(--color-terracotta);
+  font-size: clamp(0.9rem, 2.6vw, 1.1rem);
+  letter-spacing: 0.04em;
+}
+
+.wedding-hero__heading {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: var(--color-deep-red);
+  letter-spacing: 0.05em;
+}
+
+.wedding-hero__names-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-block: 0.5rem;
+}
+
+.wedding-hero__eyes {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.wedding-hero__names {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.wedding-hero__name-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.wedding-hero__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 11vw, 4.5rem);
+  color: var(--color-deep-red);
+  line-height: 1.1;
+  text-shadow: 0 2px 0 rgba(199, 154, 60, 0.25);
+}
+
+.wedding-hero__name-bn {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: var(--color-terracotta);
+  opacity: 0.85;
+}
+
+.wedding-hero__amp {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  color: var(--color-gold);
+  margin-block: 0.1em;
+}
+
+.wedding-hero__intro {
+  font-size: clamp(0.95rem, 2.8vw, 1.15rem);
+  color: var(--text-muted);
+  max-width: 32ch;
+  line-height: 1.8;
+}
+
+.wedding-hero__invite-line {
+  font-family: var(--font-display);
+  color: var(--color-gold);
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  letter-spacing: 0.08em;
+}

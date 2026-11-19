@@ -1,0 +1,53 @@
+.couple-section {
+  background: var(--bg-section);
+}
+
+.couple-section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(2rem, 6vw, 3.5rem);
+}
+
+.couple-section__story {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 3.2vw, 1.5rem);
+  color: var(--color-terracotta);
+  line-height: 1.7;
+}
+
+.couple-section__names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 4vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.couple-section__name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 9vw, 3.6rem);
+  color: var(--color-deep-red);
+}
+
+.couple-section__name-bn {
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2.6vw, 1.1rem);
+  color: var(--color-terracotta);
+  opacity: 0.85;
+}
+
+.couple-section__heart {
+  color: var(--color-gold);
+  font-size: clamp(1.3rem, 4vw, 2rem);
+}
+
+.couple-section .wedding-hands {
+  max-width: 420px;
+  margin-top: -1rem;
+}
