@@ -161,3 +161,90 @@ img, svg, video { max-width: 100%; }
   .countdown__unit strong { font-size: 29px; }
   .countdown__unit span { font-size: 6px; }
 }
+
+/* Refined invitation pass: calmer hierarchy, less repetition, more breathing room */
+.cover__frame {
+  width: min(100%, 500px);
+  min-height: 570px;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+  overflow: visible;
+}
+.cover__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cover__flap {
+  position: absolute;
+  z-index: 4;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: 51%;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  background: linear-gradient(145deg, #f5dce7 0%, #fbeaf1 60%, #edcbd9 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  pointer-events: none;
+  filter: drop-shadow(0 7px 8px rgba(145, 76, 108, .12));
+}
+.cover__frame.is-opening { box-shadow: 0 30px 100px rgba(145,76,108,.17); }
+.cover__monogram { font-size: 36px; margin: 30px 0 18px; }
+.cover__invite { margin: 20px 0 8px; font-size: 15px; }
+.cover__date { margin: 22px 0 28px; }
+.cover__foot { font-size: 7px; }
+
+/* One clear name treatment, smaller type and fewer repeated signatures */
+.hero { min-height: 570px; padding-top: 66px; padding-bottom: 66px; gap: 6vw; }
+.hero__pretitle { margin: 25px 0 10px; font-size: 16px; }
+.hero h1 {
+  max-width: 540px;
+  font-size: clamp(48px, 6.3vw, 82px);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.hero__description { font-size: 16px; max-width: 350px; margin: 20px 0 26px; }
+.hero .text-link { margin-top: 34px; }
+.intro__text { font-size: clamp(20px, 2.25vw, 28px); line-height: 1.48; max-width: 720px; margin: 24px auto 0; }
+.section-pad { padding-top: 82px; padding-bottom: 82px; }
+.section-heading h2, .countdown-section h2 { font-size: clamp(34px, 4.3vw, 52px); }
+.detail-card { min-height: 235px; padding: 34px 38px; }
+.detail-card h3 { font-size: 25px; margin: 20px 0 10px; }
+.closing h2 { font-size: clamp(46px, 6.2vw, 76px); margin: 22px 0; }
+.signature { font-size: 17px; }
+.footer { min-height: 82px; }
+
+@media (max-width: 760px) {
+  .cover__frame { min-height: 530px; }
+  .hero { min-height: auto; padding: 54px 24px 56px; gap: 34px; }
+  .hero h1 { font-size: clamp(42px, 11vw, 64px); line-height: 1.12; }
+  .hero__pretitle { font-size: 15px; margin-top: 22px; }
+  .hero__description { font-size: 15px; margin: 18px 0 22px; }
+  .hero__art { height: 300px; }
+  .section-pad { padding: 62px 24px; }
+  .intro__text { font-size: clamp(19px, 5vw, 24px); }
+  .section-heading h2, .countdown-section h2 { font-size: clamp(32px, 8vw, 42px); }
+  .detail-card h3 { font-size: 23px; }
+  .closing h2 { font-size: clamp(42px, 11vw, 58px); }
+}
+@media (max-width: 480px) {
+  .cover__frame { min-height: min(540px, calc(100dvh - 28px)); }
+  .cover__monogram { font-size: 32px; margin: 26px 0 16px; }
+  .cover__invite { font-size: 14px; }
+  .cover__date { font-size: 8px; margin: 20px 0 24px; }
+  .hero { padding: 48px 21px 48px; }
+  .hero h1 { font-size: clamp(39px, 10.5vw, 52px); }
+  .hero__art { height: 260px; }
+  .section-pad { padding: 54px 21px; }
+  .intro__text { font-size: 19px; }
+  .detail-card h3 { font-size: 21px; }
+  .closing h2 { font-size: 43px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cover__flap { transition: none !important; }
+}

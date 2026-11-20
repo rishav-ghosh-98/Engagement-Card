@@ -24,22 +24,24 @@ function useCountdown() {
   }, [now]);
 }
 
-function InvitationCover({ onOpen }) {
+function InvitationCover({ onOpen, isOpening }) {
   return (
     <motion.main className="cover" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.7 }}>
       <div className="cover__grain" />
       <div className="petal petal--one" /><div className="petal petal--two" /><div className="petal petal--three" />
       <motion.div className="cover__halo" animate={{ rotate: 360 }} transition={{ duration: 80, repeat: Infinity, ease: "linear" }} />
-      <div className="cover__frame">
-        <span className="eyebrow">A CELEBRATION OF LOVE</span>
-        <div className="cover__monogram">R <span>&</span> E</div>
-        <div className="hairline" />
-        <p className="cover__invite">Together with our families</p>
-        <h1>Rishav <i>&</i> Eshani</h1>
-        <p className="cover__date">13 DECEMBER 2026 <b>·</b> 10:00 AM</p>
-        <button className="button button--pink" onClick={onOpen}>Open invitation <span>↗</span></button>
-        <p className="cover__foot">PLEASE JOIN US FOR OUR ENGAGEMENT</p>
-      </div>
+      <motion.div className={`cover__frame${isOpening ? ' is-opening' : ''}`} animate={isOpening ? { scale: 0.985, y: 8 } : { scale: 1, y: 0 }} transition={{ duration: 0.65 }}>
+        <motion.div className="cover__flap" animate={{ rotateX: isOpening ? -178 : 0 }} transition={{ duration: 0.95, ease: [0.22, 0.75, 0.25, 1] }} />
+        <div className="cover__content">
+          <span className="eyebrow">A CELEBRATION OF LOVE</span>
+          <div className="cover__monogram">R <span>&</span> E</div>
+          <div className="hairline" />
+          <p className="cover__invite">Together with our families</p>
+          <p className="cover__date">13 DECEMBER 2026 <b>·</b> 10:00 AM</p>
+          <button className="button button--pink" onClick={onOpen} disabled={isOpening}>{isOpening ? 'Opening…' : 'Open invitation'} <span>↗</span></button>
+          <p className="cover__foot">PLEASE JOIN US FOR OUR ENGAGEMENT</p>
+        </div>
+      </motion.div>
     </motion.main>
   );
 }
@@ -56,7 +58,7 @@ function Countdown() {
 }
 
 function Invitation() {
-  const { couple, venue } = weddingData;
+  const { venue } = weddingData;
   return (
     <motion.div className="site" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
       <header className="topbar"><a href="#top" className="wordmark">R <span>&</span> E</a><a href="#details" className="topbar__link">THE DETAILS <span>↘</span></a></header>
@@ -64,7 +66,7 @@ function Invitation() {
         <div className="hero__copy">
           <span className="eyebrow">WITH JOY IN OUR HEARTS</span>
           <p className="hero__pretitle">Together with our families,</p>
-          <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .2 }}>Rishav <em>&</em><br/>Eshani</motion.h1>
+          <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .2 }}>Rishav <em>&</em> Eshani</motion.h1>
           <p className="hero__description">invite you to celebrate the beginning of a beautiful new chapter</p>
           <div className="hero__date"><span>13</span><div><b>DECEMBER</b><small>SUNDAY · 10:00 AM</small></div><span className="hero__year">2026</span></div>
           <a className="text-link" href="#details">EXPLORE THE INVITATION <span>↓</span></a>
@@ -79,7 +81,6 @@ function Invitation() {
       <motion.section className="intro section-pad" initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ duration: .8 }}>
         <span className="eyebrow">A NOTE FROM US</span>
         <p className="intro__text">Some moments become even more special when shared with the people who mean the most. We would be delighted to have you with us as we celebrate our engagement.</p>
-        <div className="signature">{couple.groom.name} <span>&</span> {couple.bride.name}</div>
       </motion.section>
       <motion.section className="details section-pad" id="details" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ duration: .8 }}>
         <div className="section-heading"><span className="eyebrow">SAVE THE DATE</span><h2>The celebration</h2><p>One special morning. A lifetime of memories.</p></div>
@@ -94,7 +95,7 @@ function Invitation() {
       <motion.section className="closing section-pad" initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .8 }}>
         <span className="eyebrow">YOUR PRESENCE IS OUR PRESENT</span>
         <h2>We can't wait<br/><i>to see you.</i></h2>
-        <p>With love,</p><div className="signature">{couple.groom.name} <span>&</span> {couple.bride.name}</div>
+        <p>With love and warm wishes,</p>
       </motion.section>
       <footer className="footer"><span>R <i>&</i> E</span><p>ENGAGEMENT CELEBRATION · 13.12.2026</p><a href={venue.mapUrl} target="_blank" rel="noreferrer">VENUE DIRECTIONS ↗</a></footer>
     </motion.div>
@@ -103,6 +104,7 @@ function Invitation() {
 
 export default function App() {
   const [opened, setOpened] = useState(false);
+  const [isOpening, setIsOpening] = useState(false);
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef(null);
 
@@ -124,9 +126,9 @@ export default function App() {
   };
 
   const openInvitation = async () => {
-    setOpened(true);
-    // The opening button is a user gesture, so browsers may allow playback here.
-    // If playback is blocked, guests can start it with the visible music toggle.
+    if (isOpening) return;
+    setIsOpening(true);
+    // Start audio directly from the guest's tap; browser policy may still block it.
     const audio = audioRef.current;
     if (audio) {
       try {
@@ -136,6 +138,7 @@ export default function App() {
         setPlaying(false);
       }
     }
+    window.setTimeout(() => setOpened(true), 1050);
   };
 
   return (
@@ -148,7 +151,7 @@ export default function App() {
             <MusicToggle key="music-toggle" playing={playing} onToggle={toggleMusic} />
           </>
         ) : (
-          <InvitationCover key="cover" onOpen={openInvitation} />
+          <InvitationCover key="cover" onOpen={openInvitation} isOpening={isOpening} />
         )}
       </AnimatePresence>
     </>
