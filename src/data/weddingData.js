@@ -29,7 +29,7 @@ export const weddingData = {
       subtitle: 'আশীর্বাদ ও বাগদান',
       date: '2026-12-13',
       time: '10:00',
-      venue: 'ABS River View Tower, Terrace',
+      venue: 'ABS River View Tower, Terrace Block-A',
       address: 'G.T. Road, Uttarpara, Hooghly 712258, West Bengal',
       description: 'আপনাদের ভালোবাসা ও আশীর্বাদে আমাদের এই বিশেষ দিনটি আরও স্মরণীয় হয়ে উঠুক।',
       theme: 'engagement',
@@ -37,7 +37,7 @@ export const weddingData = {
   ],
 
   venue: {
-    name: 'ABS River View Tower, Terrace',
+    name: 'ABS River View Tower, Terrace Block-A',
     address: 'G.T. Road, Uttarpara, Hooghly 712258, West Bengal',
     city: 'Uttarpara, Hooghly',
     mapUrl: 'https://share.google/s8dJR7XsL6So63Mrg',
