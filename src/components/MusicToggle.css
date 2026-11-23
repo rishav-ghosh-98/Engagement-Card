@@ -12,11 +12,11 @@
   gap: 0.55rem;
   min-height: 46px;
   padding: 0.7rem 1rem;
-  border: 1px solid rgba(169, 78, 120, 0.3);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 249, 251, 0.96);
-  color: #984365;
-  box-shadow: 0 8px 24px rgba(169, 78, 120, 0.16);
+  background: rgba(250, 249, 245, 0.96);
+  color: var(--rose-deep);
+  box-shadow: 0 8px 24px rgba(48, 59, 51, 0.1);
   font: inherit;
   font-size: 0.78rem;
   font-weight: 650;
@@ -29,18 +29,18 @@
 .music-toggle__button:hover {
   transform: translateY(-2px);
   background: #fff;
-  box-shadow: 0 11px 28px rgba(169, 78, 120, 0.22);
+  box-shadow: 0 11px 28px rgba(48, 59, 51, 0.14);
 }
 
 .music-toggle__button:focus-visible {
-  outline: 2px solid #a94e78;
+  outline: 2px solid var(--rose);
   outline-offset: 3px;
 }
 
 .music-toggle__track {
   display: none;
   padding-left: 0.55rem;
-  border-left: 1px solid rgba(169, 78, 120, 0.25);
+  border-left: 1px solid var(--line);
   font-weight: 450;
 }
 
