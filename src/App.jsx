@@ -78,7 +78,6 @@ function Invitation() {
         <h2>We can't wait<br/><i>to see you.</i></h2>
         <p>With love and warm wishes,</p>
       </motion.section>
-      <footer className="footer"><span>R <i>&</i> E</span><p>ENGAGEMENT CELEBRATION · 13.12.2026</p><a href={venue.mapUrl} target="_blank" rel="noreferrer">VENUE DIRECTIONS ↗</a></footer>
     </motion.div>
   );
 }
