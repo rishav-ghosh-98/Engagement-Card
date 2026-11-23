@@ -4,6 +4,19 @@ import './styles/engagement.css';
 import { weddingData } from './data/weddingData';
 import MusicToggle from './components/MusicToggle';
 
+function FloralMotif({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 96 96" fill="none" aria-hidden="true">
+      <path d="M13 84C29 70 28 57 43 45C56 35 63 23 61 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M27 67C17 68 11 61 11 52C21 50 29 56 27 67Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M43 48C34 45 31 37 35 29C44 32 48 40 43 48Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M56 32C48 28 45 21 49 14C57 17 60 24 56 32Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M46 46C52 40 60 41 65 47C59 54 52 54 46 46Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <circle cx="62" cy="10" r="3" stroke="currentColor" strokeWidth="1.4" />
+    </svg>
+  );
+}
+
 function InvitationCover({ onOpen, isOpening, prefersReducedMotion }) {
   return (
     <motion.main className="cover" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0.15 : 0.7 }}>
@@ -22,6 +35,8 @@ function InvitationCover({ onOpen, isOpening, prefersReducedMotion }) {
           animate={isOpening ? (prefersReducedMotion ? { opacity: 0 } : { rotateX: -168 }) : { rotateX: 0, opacity: 1 }}
           transition={{ duration: prefersReducedMotion ? 0.2 : 1.15, ease: [0.22, 0.75, 0.25, 1] }}
         >
+          <FloralMotif className="cover__motif cover__motif--top" />
+          <FloralMotif className="cover__motif cover__motif--bottom" />
           <div className="cover__seal" aria-hidden="true">R <i>&</i> E</div>
           <button className="button button--pink" onClick={onOpen} disabled={isOpening}>
             {isOpening ? 'Opening…' : 'Open invitation'} <span>↗</span>
@@ -38,23 +53,27 @@ function Invitation() {
     <motion.div className="site" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
       <header className="topbar"><a href="#top" className="wordmark">R <span>&</span> E</a><a href="#details" className="topbar__link"><span>↘</span></a></header>
       <section className="hero" id="top">
+        <FloralMotif className="hero__motif hero__motif--top" />
+        <FloralMotif className="hero__motif hero__motif--bottom" />
         <div className="hero__copy">
           <p className="hero__pretitle">Together with our families,</p>
           <motion.h1 className="hero__couple-names" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .2 }}>
-            <span>Rishav</span> <em>&amp;</em> <span>Eshani</span>
+            <span>Rishav</span>
+            <em>&amp;</em>
+            <span>Eshani</span>
           </motion.h1>
           <p className="hero__description">invite you to celebrate the beginning of a beautiful new chapter</p>
-          <div className="hero__date"><span>13</span><div><b>DECEMBER</b><small>SUNDAY · 10:00 AM</small></div><span className="hero__year">2026</span></div>
         </div>
       </section>
       <motion.section className="details section-pad" id="details" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ duration: .8 }}>
-        <div className="section-heading"><span className="eyebrow">SAVE THE DATE</span><h2>The celebration</h2><p>One special morning. A lifetime of memories.</p></div>
+        <div className="section-heading"><span className="eyebrow">SAVE THE DATE</span><h2>The celebration</h2><p>One special morning. A lifetime of memories.</p><FloralMotif className="section-heading__motif" /></div>
         <div className="details-grid">
           <motion.article className="detail-card" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7, delay: .12 }}><span className="detail-label">WHEN</span><h3>Sunday<br/>13 December 2026</h3><p>At 10:00 in the morning</p></motion.article>
           <motion.article className="detail-card" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7, delay: .25 }}><span className="detail-label">WHERE</span><h3>{venue.name}</h3><p>{venue.address}</p><a className="text-link" href={venue.mapUrl} target="_blank" rel="noreferrer">GET DIRECTIONS ↗</a></motion.article>
         </div>
       </motion.section>
       <motion.section className="closing section-pad" initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .8 }}>
+        <FloralMotif className="closing__motif" />
         <span className="eyebrow">YOUR PRESENCE IS OUR PRESENT</span>
         <h2>We can't wait<br/><i>to see you.</i></h2>
         <p>With love and warm wishes,</p>
