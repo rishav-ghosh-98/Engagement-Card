@@ -35,8 +35,10 @@ function InvitationCover({ onOpen, isOpening, prefersReducedMotion }) {
           animate={isOpening ? (prefersReducedMotion ? { opacity: 0 } : { rotateX: -168 }) : { rotateX: 0, opacity: 1 }}
           transition={{ duration: prefersReducedMotion ? 0.2 : 1.15, ease: [0.22, 0.75, 0.25, 1] }}
         >
-          <FloralMotif className="cover__motif cover__motif--top" />
-          <FloralMotif className="cover__motif cover__motif--bottom" />
+          <FloralMotif className="cover__motif cover__motif--top-left" />
+          <FloralMotif className="cover__motif cover__motif--top-right" />
+          <FloralMotif className="cover__motif cover__motif--bottom-left" />
+          <FloralMotif className="cover__motif cover__motif--bottom-right" />
           <div className="cover__seal" aria-hidden="true">R <i>&</i> E</div>
           <button className="button button--pink" onClick={onOpen} disabled={isOpening}>
             {isOpening ? 'Opening…' : 'Open invitation'} <span>↗</span>
@@ -53,8 +55,12 @@ function Invitation() {
     <motion.div className="site" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
       <header className="topbar"><a href="#top" className="wordmark">R <span>&</span> E</a><a href="#details" className="topbar__link"><span>↘</span></a></header>
       <section className="hero" id="top">
-        <FloralMotif className="hero__motif hero__motif--top" />
-        <FloralMotif className="hero__motif hero__motif--bottom" />
+        <FloralMotif className="hero__motif hero__motif--top-left" />
+        <FloralMotif className="hero__motif hero__motif--top-right" />
+        <FloralMotif className="hero__motif hero__motif--bottom-left" />
+        <FloralMotif className="hero__motif hero__motif--bottom-right" />
+        <FloralMotif className="hero__motif hero__motif--side-left" />
+        <FloralMotif className="hero__motif hero__motif--side-right" />
         <div className="hero__copy">
           <p className="hero__pretitle">Together with our families,</p>
           <motion.h1 className="hero__couple-names" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .2 }}>
@@ -62,17 +68,22 @@ function Invitation() {
             <em>&amp;</em>
             <span>Eshani</span>
           </motion.h1>
+          <FloralMotif className="hero__divider" />
           <p className="hero__description">invite you to celebrate the beginning of a beautiful new chapter</p>
         </div>
       </section>
       <motion.section className="details section-pad" id="details" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} transition={{ duration: .8 }}>
         <div className="section-heading"><span className="eyebrow">SAVE THE DATE</span><h2>The celebration</h2><p>One special morning. A lifetime of memories.</p><FloralMotif className="section-heading__motif" /></div>
         <div className="details-grid">
-          <motion.article className="detail-card" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7, delay: .12 }}><span className="detail-label">WHEN</span><h3>Sunday<br/>13 December 2026</h3><p>At 10:00 in the morning</p></motion.article>
-          <motion.article className="detail-card" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7, delay: .25 }}><span className="detail-label">WHERE</span><h3>{venue.name}</h3><p>{venue.address}</p><a className="text-link" href={venue.mapUrl} target="_blank" rel="noreferrer">GET DIRECTIONS ↗</a></motion.article>
+          <motion.article className="detail-card" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7, delay: .12 }}><FloralMotif className="detail-card__motif detail-card__motif--top" /><FloralMotif className="detail-card__motif detail-card__motif--bottom" /><span className="detail-label">WHEN</span><h3>Sunday<br/>13 December 2026</h3><p>At 10:00 in the morning</p></motion.article>
+          <motion.article className="detail-card" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7, delay: .25 }}><FloralMotif className="detail-card__motif detail-card__motif--top" /><FloralMotif className="detail-card__motif detail-card__motif--bottom" /><span className="detail-label">WHERE</span><h3>{venue.name}</h3><p>{venue.address}</p><a className="text-link" href={venue.mapUrl} target="_blank" rel="noreferrer">GET DIRECTIONS ↗</a></motion.article>
         </div>
       </motion.section>
       <motion.section className="closing section-pad" initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .8 }}>
+        <FloralMotif className="closing__motif closing__motif--corner closing__motif--top-left" />
+        <FloralMotif className="closing__motif closing__motif--corner closing__motif--top-right" />
+        <FloralMotif className="closing__motif closing__motif--corner closing__motif--bottom-left" />
+        <FloralMotif className="closing__motif closing__motif--corner closing__motif--bottom-right" />
         <FloralMotif className="closing__motif" />
         <span className="eyebrow">YOUR PRESENCE IS OUR PRESENT</span>
         <h2>We can't wait<br/><i>to see you.</i></h2>

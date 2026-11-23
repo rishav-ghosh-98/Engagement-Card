@@ -14,9 +14,9 @@
   padding: 0.7rem 1rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(250, 249, 245, 0.96);
+  background: rgba(251, 247, 241, 0.96);
   color: var(--rose-deep);
-  box-shadow: 0 8px 24px rgba(40, 45, 69, 0.1);
+  box-shadow: 0 8px 24px rgba(64, 43, 56, 0.1);
   font: inherit;
   font-size: 0.78rem;
   font-weight: 650;
@@ -29,7 +29,7 @@
 .music-toggle__button:hover {
   transform: translateY(-2px);
   background: #fff;
-  box-shadow: 0 11px 28px rgba(40, 45, 69, 0.14);
+  box-shadow: 0 11px 28px rgba(64, 43, 56, 0.14);
 }
 
 .music-toggle__button:focus-visible {
