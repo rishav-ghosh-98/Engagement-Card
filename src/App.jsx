@@ -187,9 +187,7 @@ function Invitation() {
           </section>
           <div className="poster__rule poster__rule--blessing" aria-hidden="true"><span>♥</span></div>
           <p className="poster__blessing">Your presence will grace us with joy on this blessed day!</p>
-          <div className="poster__rule poster__rule--signoff" aria-hidden="true"><span>♥</span></div>
-          <p className="poster__signoff">With love and warm wishes</p>
-          <p className="poster__signature">{weddingData.couple.groom.name} <i>&amp;</i> {weddingData.couple.bride.name}</p>
+          <RangoliMotif className="poster__closing-motif" />
         </div>
         <LotusMotif className="poster__lotus" />
       </main>
