@@ -38,7 +38,7 @@ export const weddingData = {
 
   venue: {
     name: 'ABS River View Tower, Terrace Block-A',
-    address: 'G.T. Road, Uttarpara, Hooghly 712258, West Bengal',
+    address: ' 2 G.T. Road, Uttarpara, Hooghly 712258, West Bengal',
     city: 'Uttarpara, Hooghly',
     mapUrl: 'https://share.google/s8dJR7XsL6So63Mrg',
     parkingInfo: 'অনুগ্রহ করে প্রয়োজনে পার্কিংয়ের বিষয়ে আয়োজকদের সঙ্গে যোগাযোগ করুন।',
