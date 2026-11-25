@@ -84,6 +84,54 @@ function LotusMotif({ className }) {
   );
 }
 
+function HeritageScene() {
+  return (
+    <svg className="poster__heritage-scene" viewBox="0 0 760 200" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+      <g className="heritage-scene__palace" strokeLinejoin="round">
+        <path d="M264 190v-70l116-49 116 49v70H264Z" fill="#f6e7dc" stroke="#986071" strokeWidth="2" />
+        <path d="m250 121 130-57 130 57-15 9-115-50-115 50-15-9Z" fill="#b98268" stroke="#986071" strokeWidth="2" />
+        <path d="M303 117V86l77-49 77 49v31" fill="#ead1bd" stroke="#986071" strokeWidth="2" />
+        <path d="M337 86V55l43-34 43 34v31" fill="#a85a68" stroke="#70253f" strokeWidth="2" />
+        <path d="M369 25c0-8 5-13 11-19 6 6 11 11 11 19h-22Z" fill="#bd996b" stroke="#70253f" strokeWidth="1.5" />
+        <path d="M348 117v-25l32-21 32 21v25" fill="#f8ece8" stroke="#bd996b" strokeWidth="2" />
+        <path d="M335 190v-37a45 45 0 0 1 90 0v37" fill="#70253f" stroke="#bd996b" strokeWidth="2" />
+        <path d="M354 190v-34a26 26 0 0 1 52 0v34" fill="#f2dfd3" stroke="#bd996b" strokeWidth="1.5" />
+        <path d="M282 132v48m18-48v48m160-48v48m18-48v48" stroke="#bd996b" strokeWidth="3" />
+        <path d="M278 129h24m156 0h24M347 119h66" stroke="#70253f" strokeWidth="2" />
+        <circle className="heritage-scene__lamp" cx="291" cy="139" r="4" fill="#d7a866" />
+        <circle className="heritage-scene__lamp" cx="469" cy="139" r="4" fill="#d7a866" />
+        <path d="M380 7v9m-6-4h12" stroke="#bd996b" strokeWidth="2" strokeLinecap="round" />
+      </g>
+      <g transform="translate(32 0)">
+        <g className="heritage-scene__elephant">
+          <ellipse cx="112" cy="151" rx="60" ry="37" fill="#9aa88d" stroke="#685260" strokeWidth="2" />
+          <ellipse cx="164" cy="132" rx="29" ry="33" fill="#a5b095" stroke="#685260" strokeWidth="2" />
+          <path d="M151 119c-17-23-40-13-37 8 2 17 18 24 33 14" fill="#87977d" stroke="#685260" strokeWidth="2" />
+          <path className="heritage-scene__trunk" d="M187 140c15 8 16 24 8 36-4 7-12 9-19 5" stroke="#685260" strokeWidth="10" strokeLinecap="round" />
+          <path d="M185 145c9 1 14 6 15 13" stroke="#f6e7dc" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="174" cy="124" r="2.5" fill="#4a3443" />
+          <path d="M72 169v22m33-18v18m32-20v20" stroke="#685260" strokeWidth="13" strokeLinecap="round" />
+          <path d="M55 139c34-20 68-23 111-8l-7 37c-38-11-70-8-97 7l-7-36Z" fill="#a9586b" stroke="#bd996b" strokeWidth="2" />
+          <path d="m76 139 8 8-8 8-8-8 8-8Zm30-7 8 8-8 8-8-8 8-8Zm30 4 8 8-8 8-8-8 8-8Z" fill="#e5c992" />
+          <path d="m151 101 13-13 13 13m-26 0h26" stroke="#bd996b" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        </g>
+      </g>
+      <g className="heritage-scene__garden" stroke="#7c8969" strokeWidth="2" strokeLinecap="round">
+        <path d="M0 193h760" stroke="#bd996b" />
+        <path d="M4 191c18-21 33-23 47-15m-30 18c16-34 29-39 42-38m-10 37c13-23 27-29 42-27m-33 28c21-15 39-16 54-9" />
+        <path d="M210 192c12-24 25-32 40-30m-21 30c11-36 25-42 41-42m-23 42c17-25 31-31 47-29m-27 29c16-14 32-17 47-12" />
+        <path d="M518 192c13-25 28-33 44-28m-25 28c11-35 26-40 41-39m-20 39c15-24 30-29 44-27m-25 27c19-15 35-17 51-12" />
+      </g>
+      <g className="heritage-scene__flowers">
+        <path d="M221 181c-9-9-6-17 2-17 0-9 10-11 14-3 8-4 14 4 9 11 7 7 0 14-8 10-4 8-14 5-14-3-8 0-10-7-3-11Z" fill="#c88783" stroke="#f3dfcf" strokeWidth="1.5" />
+        <circle cx="233" cy="176" r="3" fill="#d7a866" />
+        <path d="M520 185c-8-8-5-15 2-15 0-8 9-10 12-3 7-4 13 4 8 10 6 6 0 13-7 9-4 7-13 4-13-3-7 0-9-6-2-10Z" fill="#c88783" stroke="#f3dfcf" strokeWidth="1.5" />
+        <circle cx="530" cy="179" r="3" fill="#d7a866" />
+      </g>
+    </svg>
+  );
+}
+
 function FloralGarland({ className }) {
   return (
     <svg className={className} viewBox="0 0 600 110" fill="none" aria-hidden="true">
@@ -101,6 +149,16 @@ function FloralGarland({ className }) {
       </g>
       <path d="M15 99h570" stroke="#bd996b" strokeWidth="1" opacity=".65" />
     </svg>
+  );
+}
+
+function FloatingPetals({ className }) {
+  return (
+    <div className={className} aria-hidden="true">
+      <span className="petal petal--one" />
+      <span className="petal petal--two" />
+      <span className="petal petal--three" />
+    </div>
   );
 }
 
@@ -134,8 +192,11 @@ function InvitationCover({ onOpen, isOpening, prefersReducedMotion }) {
             <span>R <i>&amp;</i> E</span>
             <span className="cover__seal-star" aria-hidden="true">✦</span>
           </button>
+          <PaisleyMotif className="cover__paisley cover__paisley--left" />
+          <PaisleyMotif className="cover__paisley cover__paisley--right" />
         </motion.div>
       </motion.div>
+      <FloatingPetals className="cover__petals" />
     </motion.main>
   );
 }
@@ -150,6 +211,7 @@ function Invitation() {
   return (
     <motion.div className="site site--poster" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
       <main className="invitation-poster" id="top">
+        <FloatingPetals className="poster__petals" />
         <FloralGarland className="poster__garland poster__garland--top" />
         <PaisleyMotif className="poster__paisley poster__paisley--left" />
         <PaisleyMotif className="poster__paisley poster__paisley--right" />
@@ -167,28 +229,27 @@ function Invitation() {
             <RingMotif className="poster__rings" />
             <span>{weddingData.couple.bride.name}</span>
           </motion.h1>
-          <div className="poster__rule" aria-hidden="true"><span>♥</span></div>
           <p className="poster__invitation">invite you to celebrate the beginning of a beautiful new chapter</p>
 
           <div className="poster__date">
             <div className="poster__date-copy">
+              <span className="poster__date-label">Save the date</span>
               <span className="poster__weekday">{weekday}</span>
               <strong className="poster__day">{day}</strong>
               <span className="poster__month-year">{monthYear}</span>
             </div>
           </div>
 
-          <div className="poster__rule poster__rule--venue" aria-hidden="true"><span>♥</span></div>
           <section className="poster__venue" id="details">
             <span className="poster__venue-label">Venue</span>
             <h2>{venue.name}</h2>
             <p>{venue.address}</p>
             <a href={venue.mapUrl} target="_blank" rel="noreferrer">View directions <span>↗</span></a>
           </section>
-          <div className="poster__rule poster__rule--blessing" aria-hidden="true"><span>♥</span></div>
           <p className="poster__blessing">Your presence will grace us with joy on this blessed day!</p>
           <RangoliMotif className="poster__closing-motif" />
         </div>
+        <HeritageScene />
         <LotusMotif className="poster__lotus" />
       </main>
     </motion.div>

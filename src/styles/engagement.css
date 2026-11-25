@@ -1186,26 +1186,9 @@ body, .site { background: var(--paper); color: var(--ink); }
   margin: 9px 0 7px;
   color: var(--rose-deep);
 }
-.poster__rule {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: min(84%, 380px);
-  margin: 24px auto 16px;
-  color: #773142;
-}
-.poster__rule::before,
-.poster__rule::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(111,39,57,.72));
-}
-.poster__rule::after { transform: scaleX(-1); }
-.poster__rule span { font-size: 13px; line-height: 1; }
 .poster__invitation {
   max-width: 440px;
-  margin: 0 auto;
+  margin: 24px auto 0;
   color: #74434e;
   font: italic 17px/1.65 var(--serif);
 }
@@ -1213,11 +1196,21 @@ body, .site { background: var(--paper); color: var(--ink); }
   width: min(100%, 340px);
   margin: 30px auto 0;
   padding: 16px 18px;
-  border-block: 1px solid rgba(112,37,63,.46);
-  background: rgba(255,250,245,.3);
+  border: 1px solid rgba(112,37,63,.28);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(255,250,245,.82), rgba(244,227,227,.56));
+  box-shadow: 0 10px 26px rgba(67,39,51,.07), inset 0 0 0 4px rgba(255,255,255,.22);
   color: var(--ink);
 }
-.poster__date-copy { display: grid; justify-items: center; gap: 1px; }
+.poster__date-copy { display: grid; justify-items: center; gap: 3px; }
+.poster__date-label {
+  margin-bottom: 4px;
+  color: var(--rose);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
 .poster__weekday {
   color: var(--rose-deep);
   font: 500 12px/1.2 var(--serif);
@@ -1238,13 +1231,21 @@ body, .site { background: var(--paper); color: var(--ink); }
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1, "tnum" 1;
 }
-.poster__rule--venue { margin-top: 24px; }
 .poster__venue-label {
   color: var(--rose-deep);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: .24em;
   text-transform: uppercase;
+}
+.poster__venue {
+  width: min(100%, 460px);
+  margin: 24px auto 0;
+  padding: 18px 22px 14px;
+  border: 1px solid rgba(124,137,105,.34);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(124,137,105,.1), rgba(255,250,245,.72));
+  box-shadow: 0 10px 26px rgba(67,39,51,.06), inset 0 0 0 4px rgba(255,255,255,.2);
 }
 .poster__venue h2 {
   max-width: 420px;
@@ -1273,12 +1274,10 @@ body, .site { background: var(--paper); color: var(--ink); }
   text-transform: uppercase;
 }
 .poster__venue a span { color: var(--rose); }
-.poster__rule--blessing { margin-top: 20px; margin-bottom: 12px; }
 .poster__blessing {
   max-width: 430px;
-  margin: 0 auto;
+  margin: 24px auto 0;
   padding: 13px clamp(12px, 3vw, 28px);
-  border-inline: 1px solid rgba(112,37,63,.24);
   background: linear-gradient(90deg, transparent, rgba(169,88,107,.13), transparent);
   color: var(--rose-deep);
   font-size: clamp(10px, 1.8vw, 12px);
@@ -1343,4 +1342,183 @@ body, .site { background: var(--paper); color: var(--ink); }
   .poster__month-year { font-size: 11px; }
   .poster__closing-motif { width: 44px; height: 44px; margin-top: 20px; }
   .poster__lotus { right: 16px; bottom: 16px; width: 112px; }
+}
+
+.cover__petals,
+.poster__petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.cover__petals { z-index: 0; }
+.poster__petals { z-index: 1; }
+.poster__petals .petal--one { top: 21%; left: 7%; }
+.poster__petals .petal--two { top: 54%; right: 7%; }
+.poster__petals .petal--three { top: 78%; left: 14%; }
+
+.cover__motif,
+.poster__corner {
+  animation: motif-glimmer 7s ease-in-out infinite;
+}
+.cover__motif--top-right,
+.poster__corner--top-right { animation-delay: -2s; }
+.cover__motif--bottom-left,
+.poster__corner--bottom-left { animation-delay: -4s; }
+.cover__motif--bottom-right,
+.poster__corner--bottom-right { animation-delay: -6s; }
+
+.cover__paisley,
+.poster__paisley {
+  animation: motif-float 8s ease-in-out infinite;
+}
+.cover__paisley {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  width: 58px;
+  color: rgba(112,37,63,.8);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.cover__paisley--left { left: 34px; transform: translateY(-50%) rotate(-12deg); }
+.cover__paisley--right { right: 34px; transform: translateY(-50%) scaleX(-1) rotate(-12deg); animation-delay: -4s; }
+
+.cover__rangoli {
+  animation: cover-rangoli-turn 36s linear infinite;
+}
+.cover__seal-star {
+  transform-origin: center;
+  animation: seal-sparkle 3.6s ease-in-out infinite;
+}
+.poster__garland {
+  animation: garland-float 9s ease-in-out infinite;
+}
+.poster__lantern {
+  transform-origin: top center;
+  animation: lantern-sway 6s ease-in-out infinite;
+}
+.poster__lantern--right { animation-direction: reverse; }
+.poster__crest,
+.poster__closing-motif {
+  transform-origin: center;
+  animation: poster-rangoli-turn 40s linear infinite;
+}
+.poster__closing-motif { animation-direction: reverse; }
+.poster__lotus {
+  transform-origin: bottom center;
+  animation: motif-float 7s ease-in-out infinite;
+}
+
+@keyframes motif-glimmer {
+  0%, 100% { opacity: .68; filter: drop-shadow(0 0 0 rgba(112,37,63,0)); }
+  50% { opacity: .98; filter: drop-shadow(0 0 4px rgba(112,37,63,.2)); }
+}
+@keyframes motif-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+@keyframes cover-rangoli-turn {
+  from { transform: translateX(-50%) rotate(0); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+@keyframes poster-rangoli-turn {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+@keyframes seal-sparkle {
+  0%, 100% { opacity: .72; transform: scale(.9) rotate(0); }
+  50% { opacity: 1; transform: scale(1.2) rotate(18deg); }
+}
+@keyframes garland-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 4px; }
+}
+@keyframes lantern-sway {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(2deg); }
+}
+
+@media (max-width: 480px) {
+  .cover__paisley { width: 42px; }
+  .cover__paisley--left { left: 20px; }
+  .cover__paisley--right { right: 20px; }
+}
+
+.poster__heritage-scene {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(120px, 24vw, 180px);
+  pointer-events: none;
+  animation: scene-arrive 1.2s cubic-bezier(.2,.8,.2,1) both;
+}
+.heritage-scene__palace {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: palace-appear 1.4s ease-out both;
+}
+.heritage-scene__elephant {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: elephant-bob 4.4s ease-in-out infinite;
+}
+.heritage-scene__trunk {
+  transform-box: fill-box;
+  transform-origin: 0 15%;
+  animation: trunk-sway 3.2s ease-in-out infinite;
+}
+.heritage-scene__lamp {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lamp-flicker 2.8s ease-in-out infinite;
+}
+.heritage-scene__lamp + .heritage-scene__lamp { animation-delay: -1.4s; }
+.heritage-scene__flowers > path {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: flower-bloom 4.8s ease-in-out infinite;
+}
+.heritage-scene__flowers > path:nth-of-type(2) { animation-delay: -2.4s; }
+.heritage-scene__garden { animation: garden-sway 6.5s ease-in-out infinite; }
+.poster__lotus {
+  right: 18px;
+  bottom: 10px;
+  width: clamp(90px, 16vw, 132px);
+}
+
+@keyframes scene-arrive {
+  from { opacity: 0; translate: 0 18px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes palace-appear {
+  from { opacity: .45; transform: translateY(8px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes elephant-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes trunk-sway {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(4deg); }
+}
+@keyframes lamp-flicker {
+  0%, 100% { opacity: .55; transform: scale(.85); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+@keyframes flower-bloom {
+  0%, 100% { transform: scale(.96); }
+  50% { transform: scale(1.06); }
+}
+@keyframes garden-sway {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -2px; }
+}
+
+@media (max-width: 600px) {
+  .poster__heritage-scene { height: 128px; }
+  .poster__lotus { width: 96px; right: 14px; bottom: 10px; }
 }
