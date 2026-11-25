@@ -1224,7 +1224,8 @@ body, .site { background: var(--paper); color: var(--ink); }
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1, "tnum" 1;
 }
-.poster__month-year {
+.poster__month-year,
+.poster__time {
   color: var(--rose-deep);
   font: 500 14px/1.5 var(--serif);
   letter-spacing: .14em;
@@ -1232,6 +1233,7 @@ body, .site { background: var(--paper); color: var(--ink); }
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1, "tnum" 1;
 }
+.poster__time { margin-top: 2px; }
 .poster__venue-label {
   color: var(--rose-deep);
   font-size: 10px;

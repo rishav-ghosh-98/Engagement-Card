@@ -207,6 +207,8 @@ function Invitation() {
   const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(eventDate);
   const day = new Intl.DateTimeFormat('en-US', { day: 'numeric' }).format(eventDate);
   const monthYear = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(eventDate);
+  const eventTime = new Date(`${weddingData.wedding.date}T${weddingData.wedding.time}:00`);
+  const time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).format(eventTime);
 
   return (
     <motion.div className="site site--poster" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -237,6 +239,7 @@ function Invitation() {
               <strong className="poster__day">{day}</strong>
               <span className="poster__month-year">{monthYear}</span>
               <span className="poster__weekday">{weekday}</span>
+              <span className="poster__time">{time}</span>
             </div>
           </div>
 
