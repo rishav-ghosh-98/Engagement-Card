@@ -1212,6 +1212,7 @@ body, .site { background: var(--paper); color: var(--ink); }
   text-transform: uppercase;
 }
 .poster__weekday {
+  margin-top: 4px;
   color: var(--rose-deep);
   font: 500 12px/1.2 var(--serif);
   letter-spacing: .2em;

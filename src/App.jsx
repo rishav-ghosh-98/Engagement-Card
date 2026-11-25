@@ -234,9 +234,9 @@ function Invitation() {
           <div className="poster__date">
             <div className="poster__date-copy">
               <span className="poster__date-label">Save the date</span>
-              <span className="poster__weekday">{weekday}</span>
               <strong className="poster__day">{day}</strong>
               <span className="poster__month-year">{monthYear}</span>
+              <span className="poster__weekday">{weekday}</span>
             </div>
           </div>
 
