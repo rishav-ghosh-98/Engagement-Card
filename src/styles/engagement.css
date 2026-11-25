@@ -1342,9 +1342,10 @@ body, .site { background: var(--paper); color: var(--ink); }
   .cover__invite,
   .poster__eyebrow,
   .poster__invitation {
-    font-size: clamp(9px, 2.9vw, 17px);
-    letter-spacing: -.03em;
+    font-size: clamp(16px, 4vw, 18px);
+    letter-spacing: normal;
   }
+  .poster__invitation { white-space: normal; }
   .poster__date { padding: 14px 12px; }
   .poster__day { font-size: 76px; }
   .poster__closing-motif { width: 44px; height: 44px; margin-top: 20px; }
