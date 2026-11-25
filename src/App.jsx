@@ -231,7 +231,7 @@ function Invitation() {
             <RingMotif className="poster__rings" />
             <span>{weddingData.couple.bride.name}</span>
           </motion.h1>
-          <p className="poster__invitation">invite you to celebrate the beginning of a beautiful new chapter</p>
+          <p className="poster__invitation"> invite you to celebrate the beginning of a beautiful new chapter</p>
 
           <div className="poster__date">
             <div className="poster__date-copy">
@@ -239,7 +239,7 @@ function Invitation() {
               <strong className="poster__day">{day}</strong>
               <span className="poster__month-year">{monthYear}</span>
               <span className="poster__weekday">{weekday}</span>
-              <span className="poster__time">{time}</span>
+              <span className="poster__time">{time} onwards</span>
             </div>
           </div>
 
