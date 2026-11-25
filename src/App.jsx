@@ -265,6 +265,25 @@ export default function App() {
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
+  const segmentStart = 94;
+  const segmentEnd = 109;
+
+  const prepareSegment = (audio) => {
+    if (Number.isFinite(audio.duration)) {
+      audio.currentTime = Math.min(segmentStart, audio.duration);
+    }
+  };
+
+  const handleLoadedMetadata = (event) => {
+    prepareSegment(event.currentTarget);
+  };
+
+  const handleTimeUpdate = (event) => {
+    const audio = event.currentTarget;
+    if (audio.currentTime >= Math.min(segmentEnd, audio.duration)) {
+      prepareSegment(audio);
+    }
+  };
 
   const toggleMusic = async () => {
     const audio = audioRef.current;
@@ -272,6 +291,7 @@ export default function App() {
 
     if (audio.paused) {
       try {
+        prepareSegment(audio);
         await audio.play();
         setPlaying(true);
       } catch {
@@ -290,6 +310,7 @@ export default function App() {
     const audio = audioRef.current;
     if (audio) {
       try {
+        prepareSegment(audio);
         await audio.play();
         setPlaying(true);
       } catch {
@@ -301,7 +322,13 @@ export default function App() {
 
   return (
     <>
-      <audio ref={audioRef} src={weddingData.music.src} loop preload="none" />
+      <audio
+        ref={audioRef}
+        src={weddingData.music.src}
+        preload="metadata"
+        onLoadedMetadata={handleLoadedMetadata}
+        onTimeUpdate={handleTimeUpdate}
+      />
       <AnimatePresence mode="wait">
         {opened ? (
           <>
